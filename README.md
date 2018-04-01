@@ -7,9 +7,9 @@ A standalone application for searching Open Collective for collectives.
 - [X] scaffold Express application with Handlebars templating (I like the simplicity with layouts, partials, and other helpers)
 - [X] bootstrap models with sequelize (the CLI makes managing seeders, migrations, and model generation really nice)
 - [X] seed Collectives data from CSV using Postgres COPY FROM command through node-postgres library
-- build index view (styled with Tachyons) with simple search box to return all active collectives
-  - each Collective "card" will contain the name, image (with general fallback), and link to collective page
-- initially filter search results by ILIKE collective name
+- [X] build index view (styled with Tachyons) with simple search box to return all active collectives
+  - each Collective "card" will contain the name, image (with general fallback), description, and link to collective page
+- [X] initially filter search results by ILIKE collective name
 - add Postgres Full Text Search support and indexing to search collective name, description, tags
 
 ## Setup Steps

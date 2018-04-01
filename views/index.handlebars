@@ -1,8 +1,51 @@
 <header class="tc">
-  <h1 class="f-headline" id="headline">Search for Collectives</h1>
+  <h1 class="f-headline" id="headline">
+    <a href="/" class="link blue dim">Search for Collectives</a>
+  </h1>
 
   <form action="/collectives" method="GET">
-    <input type="search" placeholder="tessel" name="query" id="query" aria-labelledby="headline" class="w-33 ph2 pv3" />
+    <input type="search" placeholder="tessel" name="query" id="query" aria-labelledby="headline" class="w-33 ph2 pv3" value="{{query}}" />
   </form>
 </header>
 
+{{#if query}}
+  <main class="w-80 center pv4">
+    {{#unless collectives}}
+      <p class="b tc f2">No results found for "{{query}}"</p>
+    {{/unless}}
+
+    <ul class="list pa0 flex flex-wrap">
+      {{#each collectives}}
+        <li class="w-100 w-50-m w-20-l tc pa2 mb4 vhs-bottom">
+          <div class="ba b--blue bw2">
+            <div class="bg-blue pa3">
+              <img class="db w-100" src="{{#if this.image}} {{this.image}}  {{else}} https://opencollective.com/static/images/default-collective-logo.png {{/if}}" alt="{{this.name}}">
+            </div>
+            <div class="pa2">
+              <a href="https://opencollective.com/{{this.slug}}" class="db link dim blue pv2 b">{{this.name}}</a>
+              <div class="ba b--near-black w-50 mv2 center"></div>
+              <p class="lh-copy f6">
+                {{#if this.description}}
+                  {{this.description}}
+                {{else}}
+                  Learn more by visiting their <a href="https://opencollective.com/{{this.slug}}" class="link underline dim blue">collective page</a>.
+                {{/if}}
+              </p>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </main>
+{{/if}}
+
+
+<script type="text/javascript">
+  document.querySelectorAll('ul img').forEach((image) => {
+    image.addEventListener('error', defaultImageFallback)
+  })
+  
+  function defaultImageFallback() {
+    this.src = 'https://opencollective.com/static/images/default-collective-logo.png'
+  }
+</script>
