@@ -10,7 +10,7 @@
   "scripts": {
     "db:migrate": "sequelize db:migrate",
     "lint:fix": "standard --fix",
-    "setup": "sequelize db:create && sequelize db:seed:all",
+    "db:setup": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "start": "nodemon ./bin/start.js",
     "test": "standard"
   },

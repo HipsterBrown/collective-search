@@ -23,8 +23,14 @@ fs
   })
 
 Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db)
+  const model = db[modelName]
+
+  if (model.associate) {
+    model.associate(db)
+  }
+
+  if ('referenceModel' in model.options) {
+    model.referenceModel = db[model.options.referenceModel]
   }
 })
 

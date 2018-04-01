@@ -1,5 +1,12 @@
+const SearchModel = require('pg-search-sequelize')
+
 module.exports = (sequelize, DataTypes) => {
-  const Collective = sequelize.define('Collective', {
+  const CollectiveMaterializedView = sequelize.define('CollectiveMaterializedView', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     currency: DataTypes.STRING,
@@ -14,7 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     tags: DataTypes.ARRAY(DataTypes.STRING),
     type: DataTypes.STRING,
     data: DataTypes.JSON,
-    deletedAt: DataTypes.DATE
-  }, {})
-  return Collective
+    document: DataTypes.TEXT
+  }, {
+    tableName: 'collective_materialized_view',
+    referenceModel: 'Collective',
+    search: true,
+    timestamps: false
+  })
+  return new SearchModel(CollectiveMaterializedView)
 }
