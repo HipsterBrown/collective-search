@@ -10,15 +10,18 @@ A standalone application for searching Open Collective for collectives.
 - [X] build index view (styled with Tachyons) with simple search box to return all active collectives
   - each Collective "card" will contain the name, image (with general fallback), description, and link to collective page
 - [X] initially filter search results by ILIKE collective name
-- add Postgres Full Text Search support and indexing to search collective name, description, tags
+- [X] add Postgres Full Text Search support and indexing to search collective name, description, tags
+- [X] show 20 most-recently updated Collectives in index route
+- add footer with links to application source code and Open Collective home
 
 ## Setup Steps
 
 - run `npm install` to install dependencies && devDependencies
 - cp .env.example to .env && configure PG variables
-- call `npm run setup` to run setup scripts
+- call `npm run db:setup` to run database setup commands
   - runs `sequelize db:create` to create development database
-  - run `sequelize db:seed:all` to seed initial collective data from data/collectives.csv
+  - runs `sequelize db:migrate` to run all pending migrations
+  - runs `sequelize db:seed:all` to seed initial collective data from data/collectives.csv
 
 ## Start
 

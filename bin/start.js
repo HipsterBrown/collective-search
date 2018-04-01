@@ -15,11 +15,11 @@ db.sequelize.sync().then(() => {
       return logErrorAndExit(error)
     }
     console.log(`Server listening on port ${port}`)
-  });
+  })
 })
-.catch(logErrorAndExit)
+  .catch(logErrorAndExit)
 
-function logErrorAndExit(error) {
-  console.error(error);
-  process.exit(1);
+function logErrorAndExit (error) {
+  console.error(error)
+  process.exit(1)
 }

@@ -26,11 +26,11 @@ module.exports = {
 
     console.log('Connecting to client, then copying from', dataPath)
     return client.connect()
-    .then(() => client.query(`COPY "Collectives" FROM '${dataPath}' CSV HEADER`))
-    .then(() => console.log('Seed complete!'))
+      .then(() => client.query(`COPY "Collectives" FROM '${dataPath}' CSV HEADER`))
+      .then(() => console.log('Seed complete!'))
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Collective', null, {})
   }
-};
+}

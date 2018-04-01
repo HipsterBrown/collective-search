@@ -1,0 +1,16 @@
+<div class="ba b--blue bw2">
+  <div class="bg-blue pa3">
+    <img class="db w-100" src="{{#if this.image}} {{this.image}}  {{else}} https://opencollective.com/static/images/default-collective-logo.png {{/if}}" alt="{{this.name}}">
+  </div>
+  <div class="pa2">
+    <a href="https://opencollective.com/{{slug}}" class="db link dim blue pv2 b">{{this.name}}</a>
+    <div class="ba b--near-black w-50 mv2 center"></div>
+    <p class="lh-copy f6">
+      {{#if this.description}}
+        {{this.description}}
+      {{else}}
+        Learn more by visiting their <a href="https://opencollective.com/{{this.slug}}" class="link underline dim blue">collective page</a>.
+      {{/if}}
+    </p>
+  </div>
+</div>

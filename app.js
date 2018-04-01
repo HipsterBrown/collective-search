@@ -9,7 +9,7 @@ const logger = require('morgan')
 // project modueles
 const indexRoutes = require('./routes')
 
-const app = express();
+const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
@@ -19,4 +19,4 @@ app.use(logger('combined'))
 
 app.use('/', indexRoutes)
 
-module.exports = app;
+module.exports = app
