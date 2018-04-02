@@ -29,6 +29,7 @@
     "morgan": "^1.9.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "pg-search-sequelize": "0.0.10",
     "sequelize": "^4.37.5"
   }
 }
