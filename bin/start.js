@@ -9,14 +9,15 @@ const port = process.env.PORT || '8080'
 app.set('port', port)
 
 // setup db, then start server
-db.sequelize.sync().then(() => {
-  app.listen(port, (error) => {
-    if (error) {
-      return logErrorAndExit(error)
-    }
-    console.log(`Server listening on port ${port}`)
+db.sequelize.sync()
+  .then(() => {
+    app.listen(port, (error) => {
+      if (error) {
+        return logErrorAndExit(error)
+      }
+      console.log(`\n Server listening on port ${port}. View application in the browser at http://localhost:${port} \n`)
+    })
   })
-})
   .catch(logErrorAndExit)
 
 function logErrorAndExit (error) {
