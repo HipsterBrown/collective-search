@@ -1,11 +1,11 @@
 <header class="tc">
-  <h1 class="f-headline" id="headline">
+  <h1 class="f1 f-subheadline-m f-headline-l" id="headline">
     <a href="/" class="link blue dim">Search for Collectives</a>
   </h1>
 
   <form action="/collectives" method="GET">
     <p class="mb1">Search by collective name or relevant term:</p>
-    <input type="search" placeholder="tessel" name="query" id="query" aria-labelledby="headline" class="w-33 ph2 pv3" value="{{query}}" />
+    <input type="search" placeholder="wwcode" name="query" id="query" aria-labelledby="headline" class="w-80 w-50-l ph2 pv3" value="{{query}}" />
   </form>
 </header>
 
@@ -17,10 +17,9 @@
 
     <ul class="list pa0 flex flex-wrap">
       {{#each collectives}}
-        <li class="w-100 w-50-m w-20-l tc pa2 mb4 vhs-bottom">
+        <li class="w-100 w-50-m w-25-l tc pa2 mb4 vhs-bottom">
           {{> collective }}
-        </li>
-      {{/each}}
+        </li> {{/each}}
     </ul>
   </main>
 {{/if}}
@@ -30,7 +29,7 @@
     <h2 class="f3 b">Recently updated collectives:</h2>
     <ul class="list pa0 flex flex-wrap">
       {{#each collectives}}
-        <li class="w-100 w-50-m w-20-l tc pa2 mb4 vhs-bottom">
+        <li class="w-100 w-50-m w-25-l tc pa2 mb4 vhs-bottom">
           {{> collective }}
         </li>
       {{/each}}
